@@ -1,33 +1,82 @@
-import React, { useState } from 'react'
-import Carte from './tables/UserTable'//fichier qui affiche les listes qui vont ajouter 
-import AddUserForm from './ajouter'//fichier qui ajoute le formulaire d'ajout de produit
-import './App.css';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import jwt_decode from "jwt-decode";
+import setAuthToken from "./utils/setAuthToken";
 
-const App = () => {
-  const usersData = [
-    
-  ]
+import { setCurrentUser, logoutUser } from "./actions/authActions";
+import { Provider } from "react-redux";
+import store from "./store";
 
-  const [users, setUsers] = useState(usersData)
+import Particulier from './components/newPart/Particulier'
+import EditAtelier from './components/editAtelier/editAtelier'
+import ListTout from "./components/liste/liste"
+import Menu from "./components/design/menu/menu"
+import Landing from "./components/layout/Landing";
+import Register from "./components/auth/Register";
+import Login from "./components/auth/Login";
+import PrivateRoute from "./components/private-route/PrivateRoute";
+import Dashboard from "./components/dashboard/Dashboard";
+import NewAtelier from "./components/newAtelier/NewAtelier";
+import Footer from "./components/footer";
+//import Navbar from "./components/menu";
+import "./App.css";
 
-  const addUser = user => {
-		user.id = users.length
-		setUsers([ ...users, user ])
+// Check for token to keep user logged in
+if (localStorage.jwtToken) {
+  // Set auth token header auth
+  const token = localStorage.jwtToken;
+  setAuthToken(token);
+  // Decode token and get user info and exp
+  const decoded = jwt_decode(token);
+  // Set user and isAuthenticated
+  store.dispatch(setCurrentUser(decoded));
+  // Check for expired token
+  const currentTime = Date.now() / 1000; // to get in milliseconds
+  if (decoded.exp < currentTime) {
+    // Logout user
+    store.dispatch(logoutUser());
+
+    // Redirect to login
+    window.location.href = "./login";
   }
-
-
-  return (
-    <div className="container">
-      <div className="flex-row">
-        <div className="flex-large">
-          <AddUserForm addUser={addUser} />
-        </div><br></br>
-        <div className="flex-large">
-          <Carte users={users}/>
-        </div>
-      </div>
-    </div>
-  )
 }
-
-export default App
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+       
+        <Router>
+          <div className="containe">
+          <Route exact path="/" component={Menu} />
+          <Route exact path="/Atelier" component={Menu} />
+          <Route exact path="/Particulier" component={Menu} />
+            <div className="container-fluid">
+              <div className="row">
+                <div className="col-md-3">
+                
+                </div>
+                <div className="col-md-9">
+                  <div className="container">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/Particulier" component={Particulier} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/newAtelier" component={NewAtelier} />
+            <Route exact path="/Atelier" component={ListTout} />
+            
+            <Switch>
+              <PrivateRoute exact path="/modifierAtl/:id" component={EditAtelier} />
+              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            </Switch>
+            <Footer/>
+          </div>
+        </Router>
+      </Provider>
+    );
+  }
+}
+export default App;

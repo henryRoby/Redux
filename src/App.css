@@ -1,172 +1,100 @@
-.App {
-  text-align: center;
+#logo{
+    width:40%;
+  
+}
+#imghello{
+    width: 100%;
+    height: 50%;
+}
+#nomProject{
+    color: #f3671f;
+    font-size:46px; 
+}
+.aingo{
+    color: #d05c62;
+    font-size:76px;
+}
+#navbar{
+    height: 20%;
+}
+#ajoutatelier {
+    display: none;
+}
+#tableau {
+    display: none;
+}
+#des {
+    width: 100px
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+#deconnect{
+    height:20% !important;
+    width:70% !important;
+    margin-right:50%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+#ligne{
+ background-color: #f7cab3;
 }
 
-.App-link {
-  color: #61dafb;
+
+#mail{
+    background-color: #f3671f;
+    border-radius:4%;
+    width:350px;
+    padding:8px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-#nom {
-  font-weight: bolder;
-  font-size: 20px;
-}
-.container {
-  margin-top: 80px;
-}
-#erreur {
-  color: red;
-}
-#nomproduit {
-  font-size: 18px;
-  font-weight: normal;
-}
-h6 {
-  font-weight: bolder;
-  font-size: 18px;
-}
-textarea {
-  width: 210px;
-	border: 1px solid #bdc7d8;
-	border-radius: 5px;
-	margin-top: 20px;
-	padding-left: 10px;
-	font-size: 18px;
-  font-weight: 450;
-}
-#description {
-  font-weight: bolder;
-  font-size: 18px;
-}
-.spanprix {
-  float: right;
-}
-#image {
-  margin-left: 70px;
-}
-#boutton {
-  width: 325px;
-}
-#icone {
-  width: 20px;
-  height: 20px;
-}
-#commentaire {
-  color: red;
-  cursor: pointer; 
-}
-#point {
-  overflow: hidden;
-  position: relative; 
-  line-height: 1.2em;
-  max-height: 3.6em;
-  text-align: justify;
-  margin-right: -1em;
-  padding-right: 1em;
+#ajoutbouton{
+    background-color: #f07f47;
+    padding-right:41%;
 }
 
-#point:before {
-  content: '...';
-  position: absolute;
-  right: 0;
-  bottom: 0;
-}
-#point:after {
-  content: '';
-  position: absolute;
-  right: 0;
-  width: 1em;
-  height: 1em;
-  margin-top: 0.2em;
-  background: white;
- }
 
-.tableau {
-  border: 2px solid rgb(104, 85, 85);
-  border-radius: 5px;
-  width: 400px;
-  margin-left: 300px;
-  padding: 10px 10px 20px 20px;
+#deconnect{
+    height:20% !important;
+    width: 70% !important;
+    margin-right:60% !important;
+   
 }
-#icon {
-  color: red;
-  width: 20px;
-  height: 10px;
-  cursor: pointer;
+
+#listerbout{
+    background-color: #f07f47;
 }
-input[type="file"]{ 
-  display: none; 
-} 
+
+#feedback-form button[type=submit] {
+    display: block;
+    margin: 2.58vh auto 0;
+     width:64vh; 
+     height: 5.16vh; 
+     border-radius:10%;
+      border: none;
+       color: #eee;
+        font-weight: 700;
+          background: #d05c62 !important;
+           } 
+
+
+
 
 #fichier{ 
-  padding: 10px; 
-  background: rgb(88, 85, 85); 
-  display: table; 
-  color: #fff; 
-  width: 100px; 
-  height: 30px; 
-  border-radius: 2px; 
-  text-align: center; 
-  float: right; 
-  margin-top: 10px; 
-  padding-top: 5px!important; 
-  line-height: 30px;
-  font-weight: bold
-}
-#ligne {
-  width: 360px;
-  height: 5;
-  background-color: blueviolet;
-}
-#tdcomment {
-  color: cadetblue;
-  font-style: italic;
-  font-weight: bold;
-  padding-left: 30px;
-  word-wrap: break-word;
-}
-.popups {
-  border: 2px solid rgb(104, 85, 85);
-  border-radius: 5px;
-  width: 400px;
-  margin-left: 300px;
-  padding: 10px 10px 20px 20px;
-}
-#btnpopups {
-  margin-left: 330px;
-  width: 35px;
-  height: 35px;
-  font-size: 16px;
- text-align: left;
-}
-#tablecommentaire {
-  margin-top: 20px;
-}
-#word {
-  word-wrap: break-word;
-  width: 300px;
+    padding: 10px; 
+    background: rgb(88, 85, 85); 
+    display: table; 
+    color: #fff; 
+    width: 100px; 
+    height: 30px; 
+    border-radius: 2px; 
+    text-align: center; 
+    float: right; 
+    margin-top: 10px; 
+    padding-top: 5px!important; 
+    line-height: 30px;
+    font-weight: bold
+  }
+
+
+#fotera{
+    background-color: #f3671f;
 }
